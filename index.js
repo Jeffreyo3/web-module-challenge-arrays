@@ -115,15 +115,14 @@ Hint: You can use .splice() for this
 
 function removeFlavorByName(flavorArr, flavorName) {
   for (i = 0; i < flavorArr.length; i++) {
-      if (flavorArr[i] === flavorName){
-          flavorArr.splice(i, 1)
-      }
+    if (flavorArr[i] === flavorName) {
+      flavorArr.splice(i, 1);
+    }
   }
-  return flavorArr
+  return flavorArr;
 }
 
-console.log(removeFlavorByName(originalFlavors, "Butterscotch Ribbon"))
-
+console.log(removeFlavorByName(originalFlavors, "Butterscotch Ribbon"));
 
 /* Task 6: With all of these changes going on, we don't want to lose track of the actual, original 31 flavors. Write a function called copy that makes a copy of the array. 
 
@@ -132,15 +131,15 @@ Your function should accept:
 2 arguments 1 for your new array and one for your original array
 
 and should return a new array that is identical to the old array. You can name the new array however you'd like. */
-const copyOriginalFlavors = []
+const copyOriginalFlavors = [];
 function copy(flavorArr, copyArr) {
-  for(i=0;i<flavorArr.length;i++) {
-      copyArr.push(flavorArr[i])
+  for (i = 0; i < flavorArr.length; i++) {
+    copyArr.push(flavorArr[i]);
   }
 }
 
-copy(originalFlavors, copyOriginalFlavors)
-console.log(copyOriginalFlavors)
+copy(originalFlavors, copyOriginalFlavors);
+console.log(copyOriginalFlavors);
 
 /* Task 7: July 7th is "World Chocolate Day" and Baskin Robins wants to create promotional materials highlighting all of their chocolate flavors. Write a function that checks every item in the array for a given string and returns a new array called filteredArray with just these values. Rather than hardcoding "chocolate" into your function, pass a string as a parameter, and invoke with the argument "chocolate". This way you could also filter for "Vanilla", "Sherbert", etc. when those holidays roll around.
 
@@ -158,21 +157,21 @@ DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem.
 hint - you can use the .includes method to help you solve this */
 
 function filterByWord(flavorArr, filterWord) {
-    const filterWordList = []
-    for (i=0; i<flavorArr.length;i++) {
-        if(flavorArr[i].toLowerCase().includes(filterWord.toLowerCase())) {
-            filterWordList.push(flavorArr[i])
-        }
+  const filterWordList = [];
+  for (i = 0; i < flavorArr.length; i++) {
+    if (flavorArr[i].toLowerCase().includes(filterWord.toLowerCase())) {
+      filterWordList.push(flavorArr[i]);
     }
-    return filterWordList
+  }
+  return filterWordList;
 }
 
-console.log(filterByWord(originalFlavors, "chocolate"))
-console.log(filterByWord(originalFlavors, "Chocolate"))
-console.log(filterByWord(originalFlavors, "CHOCOLATE"))
+console.log(filterByWord(originalFlavors, "chocolate"));
+console.log(filterByWord(originalFlavors, "Chocolate"));
+console.log(filterByWord(originalFlavors, "CHOCOLATE"));
 
-console.log(filterByWord(originalFlavors, "Vanilla"))
-console.log(filterByWord(originalFlavors, "SHERBERT"))
+console.log(filterByWord(originalFlavors, "Vanilla"));
+console.log(filterByWord(originalFlavors, "SHERBERT"));
 
 /* 🧁🍦🍨 STRETCH 🍨🍦🍫*/
 
@@ -186,9 +185,15 @@ and should return the average number of words per item in the array.
 
 For example, getAverageWordLength(originalFlavors) should return a number between 0 and 3. */
 
-function getAverageWordLength(/*code here*/) {
-  /*code here*/
+function getAverageWordLength(flavorArr) {
+  let wordCount = 0;
+  for(i=0; i<flavorArr.length;i++) {
+      wordCount = wordCount + flavorArr[i].split(" ").length
+  }
+  return wordCount/flavorArr.length
 }
+
+console.log(getAverageWordLength(originalFlavors))
 
 /* STRETCH 2: Baskin Robins now offers new flavors, seasonal flavors, and even regional flavors. Write a function that will randomly select a total of 31 flavors from originalFlavors, currentFlavors, seasonalFlavors, and regionalFlavors.
 
